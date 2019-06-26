@@ -21,4 +21,9 @@ class HomeController extends Controller
     {
     	return view('registration');
     }
+
+    public function submitregistration(Request $request)
+    {
+        dd($request->all());
+    }
 }

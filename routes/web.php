@@ -20,3 +20,4 @@ Route::post('/login', 'HomeController@submitlogin')->name('login-submit');
 
 /*registration*/
 Route::get('/registration', 'HomeController@registrationform');
+Route::post('/registration', 'HomeController@submitregistration')->name('registration-submit');
