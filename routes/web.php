@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', 'HomeController@loginform');
+Route::post('/login', 'HomeController@submitlogin')->name('login-submit');
