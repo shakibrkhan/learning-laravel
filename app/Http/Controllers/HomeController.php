@@ -16,4 +16,9 @@ class HomeController extends Controller
     	dd($request->all());
     	// dd($request->exampleInputEmail1);
     }
+
+    public function registrationform()
+    {
+    	return view('registration');
+    }
 }

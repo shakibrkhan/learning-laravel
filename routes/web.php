@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*login*/
 Route::get('/login', 'HomeController@loginform');
 Route::post('/login', 'HomeController@submitlogin')->name('login-submit');
+
+/*registration*/
+Route::get('/registration', 'HomeController@registrationform');
