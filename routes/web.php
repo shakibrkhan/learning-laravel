@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// About
+Route::get('/about', 'HomeController@selectUser')->name('about');
+Route::post('/reg_save', 'HomeController@saveRegistration')->name('registration');
+Route::delete('/about/{id}', 'HomeController@deleteUser')->name('delete_user');
+
 /*login*/
 Route::get('/login', 'HomeController@loginform');
 Route::post('/login', 'HomeController@submitlogin')->name('login-submit');
