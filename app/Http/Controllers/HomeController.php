@@ -36,12 +36,14 @@ class HomeController extends Controller
         $lastName = $request->input('defaultRegisterFormLastName');
         $email = $request->input('defaultRegisterFormEmail');
         $password = $request->input('password');
+        $productImageFile = $request->file('productImage');
 
         $v = Validator::make($request->all(), [
             'defaultRegisterFormFirstName' => 'required',
             'defaultRegisterFormLastName' => 'required',
             'defaultRegisterFormEmail' => 'required',
             'password' => 'required|confirmed',
+            'productImage' => 'mimes:jpeg,bmp,png|max:5120',
         ]);
     
         if ( $v->fails() )
@@ -49,12 +51,31 @@ class HomeController extends Controller
             return redirect()->back()->withErrors($v->errors());
         }
 
-        DB::table('user')->insert([
+        // CODE BLOCK : READ LAST ID and set +1 to add the next ID number in the file
+
+        //Construct new name for product image file
+        $imagefileName = "image-" . time() . '.' . $productImageFile->getClientOriginalExtension();
+
+        //Move Uploaded File
+        $destinationPath = 'uploads';
+        $productImageFile->move($destinationPath, $imagefileName);
+
+
+        $insertData = [
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $email,
             'password' => bcrypt($password),
-        ]);
+            'image_file_name' => $imagefileName
+        ];
+        DB::table('user')->insert($insertData);
+
+        // DB::table('user')->insert([
+        //     'first_name' => $firstName,
+        //     'last_name' => $lastName,
+        //     'email' => $email,
+        //     'password' => bcrypt($password),
+        // ]);
         
         session()->flash('msg', 'Registered successfully!');
         return redirect()->back();

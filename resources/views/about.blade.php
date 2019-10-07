@@ -23,13 +23,18 @@
                     <ol>
                         @foreach ($users as $item)    
                            <li>
-                               {{ $item->first_name }} {{ $item->last_name }}
+                                <p>{{ $item->first_name }} {{ $item->last_name }}</p>
+                                
+                                @if ( !empty($item->image_file_name) )
+                                <p><img src="uploads/{{ $item->image_file_name }}" width="240" /></p>
+                                @endif
+
                                <form class="ml-1 form-delete-category" action="{{ route('delete_user', ['id' => $item->id]) }}" method="post">
                                     <button class="btn btn-danger" type="submit">Delete</button>
                                     @method('delete')
                                     @csrf
                                 </form>
-                            </li>
+                            </li><hr>
                         @endforeach
                     </ol>
                 </div>
@@ -53,7 +58,7 @@
                 @endif
 
                 <!-- Default form register -->
-                <form action="{{ route('registration') }}" method="POST" class="text-center border border-light p-5">
+                <form action="{{ route('registration') }}" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
                     @csrf
                     <p class="h4 mb-4">User Registration Form</p>
 
@@ -77,7 +82,9 @@
                         At least 8 characters and 1 digit
                     </small>
 
-                    <input type="password" name="password_confirmation" id="confirmRegisterFormPassword" class="form-control" placeholder="Re-type Password" aria-describedby="confirmRegisterFormPasswordHelpBlock">
+                    <input type="password" name="password_confirmation" id="confirmRegisterFormPassword" class="form-control mb-4" placeholder="Re-type Password" aria-describedby="confirmRegisterFormPasswordHelpBlock">
+
+                    <input type="file" name="productImage" id="productImage" class="form-control">
 
                     <!-- Sign up button -->
                     <button class="btn btn-info my-4 btn-block" type="submit">Register</button>    
