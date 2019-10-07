@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 // About
-Route::get('/about', 'HomeController@selectUser')->name('about');
+Route::get('/resigter', 'HomeController@selectUser')->name('resigter');
 Route::post('/reg_save', 'HomeController@saveRegistration')->name('registration');
-Route::delete('/about/{id}', 'HomeController@deleteUser')->name('delete_user');
+Route::delete('/resigter/{id}', 'HomeController@deleteUser')->name('delete_user');
 
 /*login*/
 Route::get('/login', 'HomeController@loginform');

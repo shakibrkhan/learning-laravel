@@ -84,7 +84,7 @@ class HomeController extends Controller
     public function selectUser()
     {
         $users = DB::table('user')->get();
-        return view('about', compact('users'));
+        return view('resigter', compact('users'));
     }
 
     public function deleteUser(Request $request, $id)
