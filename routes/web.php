@@ -27,3 +27,8 @@ Route::post('/login', 'HomeController@submitlogin')->name('login-submit');
 /*registration*/
 Route::get('/registration', 'HomeController@registrationform');
 Route::post('/registration', 'HomeController@submitregistration')->name('registration-submit');
+
+// Admin
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/pages', 'AdminController@showPages');
+Route::get('/admin/page_list', 'AdminController@pageList')->name('page_list');
