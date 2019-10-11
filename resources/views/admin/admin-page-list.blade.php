@@ -1,5 +1,7 @@
 @extends('admin.master-admin')
 
+@section('pageTitle', 'Pages List')
+
 @section('content')
 <div class="container-fluid">
 
