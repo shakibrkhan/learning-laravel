@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use Validator;
+use File;
 
 class HomeController extends Controller
 {
@@ -66,9 +67,10 @@ class HomeController extends Controller
             'last_name' => $lastName,
             'email' => $email,
             'password' => bcrypt($password),
+            'joining' => now(),
             'image_file_name' => $imagefileName
         ];
-        DB::table('user')->insert($insertData);
+        DB::table('test')->insert($insertData);
 
         // DB::table('user')->insert([
         //     'first_name' => $firstName,
@@ -83,16 +85,19 @@ class HomeController extends Controller
 
     public function selectUser()
     {
-        $users = DB::table('user')->get();
+        $users = DB::table('test')->get();
         return view('resigter', compact('users'));
     }
 
     public function deleteUser(Request $request, $id)
     {
         $userID = $id;
-        // $userData = DB::table('user')->where('id', $userID)->count();
+        $userData = DB::table('test')->where('id', '=', $userID)->first();
+        $imageFileName = $userData->image_file_name;
+        $filePath = public_path() . '/uploads' . '/' . $imageFileName;
+        File::delete($filePath);
 
-        DB::table('user')->where('id', '=', $userID)->delete();
+        DB::table('test')->where('id', '=', $userID)->delete();
         session()->flash('del-msg', 'User deleted successfully!');
         return redirect()->back();
     }
