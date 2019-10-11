@@ -88,7 +88,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true" aria-controls="collapsePosts">
-        <i class="fas fa-fw fa-folder"></i>
+        <i class="fas fa-fw fa-edit"></i>
         <span>Posts</span>
       </a>
       <div id="collapsePosts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -103,7 +103,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMedia" aria-expanded="true" aria-controls="collapseMedia">
-        <i class="fas fa-fw fa-folder"></i>
+        <i class="fas fa-fw fa-images"></i>
         <span>Media</span>
       </a>
       <div id="collapseMedia" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -116,7 +116,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-fw fa-folder"></i>
+        <i class="fas fa-fw fa-file-alt"></i>
         <span>Pages</span>
       </a>
       <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -126,24 +126,10 @@
         </div>
       </div>
     </li>
-    
-    <!-- Nav Item - Comments -->
-    <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Comments</span></a>
-    </li>
-
-    <!-- Nav Item - Contact -->
-    <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Contact</span></a>
-    </li>
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
-        <i class="fas fa-fw fa-folder"></i>
+        <i class="fas fa-fw fa-user-friends"></i>
         <span>Users</span>
       </a>
       <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -154,6 +140,20 @@
             <a class="collapse-item" href="">User Role Editor</a>
         </div>
       </div>
+    </li>    
+    
+    <!-- Nav Item - Comments -->
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fas fa-fw fa-comments"></i>
+        <span>Comments</span></a>
+    </li>
+
+    <!-- Nav Item - Contact -->
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span>Contact</span></a>
     </li>
 
     <!-- Nav Item - Charts -->
