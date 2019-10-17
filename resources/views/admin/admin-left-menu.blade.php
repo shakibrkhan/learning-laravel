@@ -99,6 +99,13 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
       <a class="nav-link" href="">
+        <i class="fas fa-fw fa-bars"></i>
+        <span>Menus</span></a>
+    </li>
+    
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link" href="">
         <i class="fas fa-fw fa-cog"></i>
         <span>Settings</span></a>
     </li>

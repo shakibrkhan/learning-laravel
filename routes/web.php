@@ -31,4 +31,4 @@ Route::post('/registration', 'HomeController@submitregistration')->name('registr
 // Admin
 Route::get('/admin', 'AdminController@index')->name('admin-panel');
 Route::get('/admin/pages', 'AdminController@showPages');
-Route::get('/admin/page_list', 'AdminController@pageList')->name('page_list');
+Route::get('/admin/page_list', 'AdminController@selectPages')->name('page_list');
