@@ -24,6 +24,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <script src="{{asset('js/jquery.min.js')}}"></script>
 
 </head>
 
@@ -88,7 +89,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('js/jquery.min.js')}}"></script>
+  {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
   <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->

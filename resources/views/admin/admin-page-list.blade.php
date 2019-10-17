@@ -119,10 +119,10 @@
                 <thead>
                   <tr>
                     <th width="10%">Sl. No.</th>
-                    <th width="65%">Title</th>
-                    <th width="10">Author</th>
+                    <th width="55%">Title</th>
+                    <th width="13%">Author</th>
                     <th width="10%">Date</th>
-                    <th width="10%">Edit</th>
+                    <th width="12%">Edit</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -138,19 +138,16 @@
                             @endphp                              
                           </td>
                           <td>
-                              <a href="" title="Edit"><i class="fas fa-edit"></i></a>
-                              <a href="" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                          </td>
-                          
-                          {{-- @if ( !empty($item->image_file_name) )
-                          <p><img src="uploads/{{ $item->image_file_name }}" width="240" /></p>
-                          @endif
+                            <div class="overflow-hidden">
+                              <a class="btn btn-primary float-left" href="{{ route('edit_page', ['id' => $item->id]) }}" title="Edit"><i class="fas fa-edit"></i></a>
 
-                          <form class="ml-1 form-delete-category" action="{{ route('delete_user', ['id' => $item->id]) }}" method="post">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                              @method('delete')
-                              @csrf
-                          </form> --}}
+                              <form class="ml-1 form-delete-category float-left" action="{{ route('delete_page', ['id' => $item->id]) }}" method="post">
+                                  <button class="btn btn-danger" type="submit" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                                  @method('delete')
+                                  @csrf
+                              </form>
+                            </div>
+                          </td>
 
                       </tr>
                   @endforeach
@@ -167,4 +164,13 @@
     </div>
 
   </div>
+
+  <script>
+      $( document ).ready( function () {
+          $(".form-delete-category").on("submit", function(){
+              return confirm("Are you sure?");
+          });
+      } );
+  </script>  
+
 @endsection

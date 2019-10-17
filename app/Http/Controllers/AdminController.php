@@ -27,4 +27,23 @@ class AdminController extends Controller
         $countArchive = DB::table('pages')->where('archive',1)->count();
         return view('admin.admin-page-list', compact('pages', 'count', 'countPublished', 'countUnpublished', 'countArchive'));
     }
+
+    public function deletePage(Request $request, $id)
+    {
+        $pageID = $id;
+        // $userData = DB::table('pages')->where('id', '=', $pageID)->first();
+        // $imageFileName = $userData->image_file_name;
+        // $filePath = public_path() . '/uploads' . '/' . $imageFileName;
+        // File::delete($filePath);
+
+        DB::table('pages')->where('id', '=', $pageID)->delete();
+        session()->flash('del-msg', 'User deleted successfully!');
+        return redirect()->back();
+    }
+
+    public function editPage(Request $request, $id)
+    {
+        return view('admin.edit-page');
+    }
+
 }
