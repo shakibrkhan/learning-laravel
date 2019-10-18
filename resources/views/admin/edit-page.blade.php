@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <button class="btn btn-primary my-2 py-2 px-4" type="submit">Update Page</button>
+                                        <button class="btn btn-primary my-2 py-2 px-4" type="submit">Update</button>
                                     </div>
                                 </div>                                
 
