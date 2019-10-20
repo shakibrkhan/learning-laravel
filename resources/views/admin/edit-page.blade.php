@@ -33,29 +33,32 @@
                         <div class="card-body">
                             
 
-
+                        @foreach ($singlePage as $item)
                             <!-- Default edit form -->
                             <form action="{{ route('registration') }}" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="Title">
+                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" value="{{ $item->title }}" placeholder="Title">
                                     </div>
                                     <div class="col">
-                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="Slug">
+                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" value="{{ $item->slug }}" placeholder="Slug">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <textarea class="form-control" name="page-details" id="page-details" placeholder="Description"></textarea>
+                                        <textarea class="form-control" name="page-details" id="page-details" placeholder="Description">{{ $item->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                         <select name="publish-status" id="publish-status" class="form-control">
-                                            <option value="1">Publish</option>
-                                            <option value="0">Unpublish</option>
+                                            @if( $item->publish_status == 1)
+                                                <option value="1">Publish</option>
+                                            @else
+                                                <option value="0">Unpublish</option>
+                                            @endif                                            
                                         </select>
                                     </div>
                                     <div class="col">
@@ -64,12 +67,12 @@
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="text" name="seo-title" id="seo-title" class="form-control" placeholder="SEO Title">
+                                        <input type="text" name="seo-title" id="seo-title" class="form-control" value="{{ $item->seo_title }}" placeholder="SEO Title">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <textarea class="form-control" name="seo-description" id="seo-description" placeholder="SEO Description"></textarea>
+                                        <textarea class="form-control" name="seo-description" id="seo-description" placeholder="SEO Description">{{ $item->seo_description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
@@ -80,7 +83,7 @@
 
                             </form>
                             <!-- // Default edit form -->
-            
+                        @endforeach
                             
             
             
