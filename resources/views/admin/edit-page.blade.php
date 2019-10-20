@@ -35,12 +35,12 @@
 
                         @foreach ($singlePage as $item)
                             <!-- Default edit form -->
-                            <form action="{{ route('registration') }}" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
+                            <form action="" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" value="{{ $item->title }}" placeholder="Title">
+                                        <input type="text" name="pageTitle" id="pageTitle" class="form-control" value="{{ $item->title }}" placeholder="Title">
                                     </div>
                                     <div class="col">
                                         <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" value="{{ $item->slug }}" placeholder="Slug">
