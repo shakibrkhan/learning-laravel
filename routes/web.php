@@ -31,6 +31,8 @@ Route::post('/registration', 'HomeController@submitregistration')->name('registr
 // Admin
 Route::get('/admin', 'AdminController@index')->name('admin-panel');
 Route::get('/admin/pages', 'AdminController@showPages');
+Route::get('/admin/add_page', 'AdminController@createPage')->name('add_page');
+Route::post('/admin/save_page', 'AdminController@addPage')->name('save_page');
 Route::get('/admin/page_list', 'AdminController@selectPages')->name('page_list');
 Route::delete('/admin/page_list/{id}', 'AdminController@deletePage')->name('delete_page');
 Route::get('/admin/page_edit/{id}', 'AdminController@editPage')->name('edit_page');

@@ -45,21 +45,23 @@
                                         <input type="text" name="pageTitle" id="pageTitle" class="form-control" value="{{ $item->title }}" placeholder="Title">
                                     </div>
                                     <div class="col">
-                                        <input type="text" name="defaultRegisterFormFirstName" id="defaultRegisterFormFirstName" class="form-control" value="{{ $item->slug }}" placeholder="Slug">
+                                        <input type="text" name="pageslug" id="pageslug" class="form-control" value="{{ $item->slug }}" placeholder="Slug">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <textarea class="form-control" name="page-details" id="page-details" placeholder="Description">{{ $item->description }}</textarea>
+                                        <textarea class="form-control" name="pageDescription" id="pageDescription" placeholder="Description">{{ $item->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <select name="publish-status" id="publish-status" class="form-control">
+                                        <select name="pageStatus" id="pageStatus" class="form-control">
                                             @if( $item->publish_status == 1)
                                                 <option value="1">Publish</option>
+                                                <option value="0">Unpublish</option>
                                             @else
                                                 <option value="0">Unpublish</option>
+                                                <option value="1">Publish</option>
                                             @endif                                            
                                         </select>
                                     </div>
@@ -69,12 +71,12 @@
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="text" name="seo-title" id="seo-title" class="form-control" value="{{ $item->seo_title }}" placeholder="SEO Title">
+                                        <input type="text" name="pageSeoTitle" id="pageSeoTitle" class="form-control" value="{{ $item->seo_title }}" placeholder="SEO Title">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <textarea class="form-control" name="seo-description" id="seo-description" placeholder="SEO Description">{{ $item->seo_description }}</textarea>
+                                        <textarea class="form-control" name="pageSeoDescription" id="pageSeoDescription" placeholder="SEO Description">{{ $item->seo_description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
