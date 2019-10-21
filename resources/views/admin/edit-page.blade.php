@@ -35,11 +35,13 @@
 
                         @foreach ($singlePage as $item)
                             <!-- Default edit form -->
-                            <form action="" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
+                        <form action="{{ route('page_update') }}" method="POST" class="text-center border border-light p-5" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="form-row mb-4">
                                     <div class="col">
+                                        <input type="hidden" name="pageid" id="pageid" class="form-control" value="{{ $item->id }}">
                                         <input type="text" name="pageTitle" id="pageTitle" class="form-control" value="{{ $item->title }}" placeholder="Title">
                                     </div>
                                     <div class="col">
@@ -84,8 +86,6 @@
                             </form>
                             <!-- // Default edit form -->
                         @endforeach
-                            
-            
             
                         </div>
                     </div>

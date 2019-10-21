@@ -47,4 +47,44 @@ class AdminController extends Controller
         return view('admin.edit-page', compact('singlePage'));
     }
 
+    public function updatePage(Request $request)
+    {
+        $pageId = $request->input('pageid');
+        $pageTitle = $request->input('pageTitle');
+
+        $insertData = [
+            'title'   => $pageTitle,
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+        DB::table('pages')->where('id', $pageId)->update($insertData);
+        session()->flash('msg', 'Page updated successfully!');
+        return redirect()->route('page_list');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $pageId = $request->input('pageid');
+        $pageStatus = $request->input('pageStatus');
+
+        if ( $pageStatus == 1 ) {
+            $insertData = [
+                'publish_status'   => 0,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+            DB::table('pages')->where('id', $pageId)->update($insertData);
+        } elseif ( $pageStatus == 0 ) {
+            $insertData = [
+                'publish_status'   => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+            DB::table('pages')->where('id', $pageId)->update($insertData);
+        }
+        
+        session()->flash('msg', 'Page Status updated successfully!');
+        return redirect()->route('page_list');
+    }
+
 }

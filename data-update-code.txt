@@ -1,3 +1,4 @@
+<?php
 // Lv Delete query builder with file deletion
 public function deleteProduct(Request $request, $productID)
     {

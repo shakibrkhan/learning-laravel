@@ -114,15 +114,20 @@
           <!-- Card Body -->
           <div class="card-body">
             
+              @if ( session()->has('msg') )
+                  <div class="alert alert-success" role="alert">
+                      {{ session('msg') }}
+                  </div>
+              @endif            
 
               <table class="table table-bordered table-striped table-custom">
                 <thead>
                   <tr>
-                    <th width="10%">Sl. No.</th>
+                    <th width="8%">Sl. No.</th>
                     <th width="55%">Title</th>
-                    <th width="13%">Author</th>
+                    <th width="10%">Author</th>
                     <th width="10%">Date</th>
-                    <th width="12%">Edit</th>
+                    <th width="17%">Edit</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -139,7 +144,21 @@
                           </td>
                           <td>
                             <div class="overflow-hidden">
-                              <a class="btn btn-primary float-left" href="{{ route('edit_page', ['id' => $item->id]) }}" title="Edit"><i class="fas fa-edit"></i></a>
+
+                              <form class="float-left" action="{{ route('page_status_update') }}" method="POST">
+                                  @csrf
+                                  @method('PUT')
+                                  <input type="hidden" name="pageid" id="pageid" value="{{ $item->id }}">
+                                  <input type="hidden" name="pageStatus" id="pageStatus" value="{{ $item->publish_status }}">
+                                  @if ( $item->publish_status == 1 )
+                                    <button class="btn btn-success" type="submit" title="Published"><i class="fas fa-lock-open"></i></button>
+                                  @else
+                                    <button class="btn btn-danger" type="submit" title="Unpublished"><i class="fas fa-lock"></i></button>
+                                  @endif                                  
+                              </form>
+
+                              <a class="ml-1 btn btn-primary float-left" href="{{ route('edit_page', ['id' => $item->id]) }}" title="Edit"><i class="fas fa-edit"></i></a>                             
+                              
 
                               <form class="ml-1 form-delete-category float-left" action="{{ route('delete_page', ['id' => $item->id]) }}" method="post">
                                   <button class="btn btn-danger" type="submit" title="Delete"><i class="fas fa-trash-alt"></i></button>

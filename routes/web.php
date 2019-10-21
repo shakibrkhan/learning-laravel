@@ -34,3 +34,5 @@ Route::get('/admin/pages', 'AdminController@showPages');
 Route::get('/admin/page_list', 'AdminController@selectPages')->name('page_list');
 Route::delete('/admin/page_list/{id}', 'AdminController@deletePage')->name('delete_page');
 Route::get('/admin/page_edit/{id}', 'AdminController@editPage')->name('edit_page');
+Route::put('/admin/page_update/', 'AdminController@updatePage')->name('page_update');
+Route::put('/admin/page_status_update/', 'AdminController@updateStatus')->name('page_status_update');
