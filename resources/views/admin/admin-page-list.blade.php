@@ -8,7 +8,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Page List</h1>
-      <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add New Page</a>
+      <a href="{{route('add_page')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add New Page</a>
     </div>
 
     <!-- Content Row -->
@@ -113,7 +113,7 @@
 
           <!-- Card Body -->
           <div class="card-body">
-            
+           
               @if ( session()->has('msg') )
                   <div class="alert alert-success" role="alert">
                       {{ session('msg') }}

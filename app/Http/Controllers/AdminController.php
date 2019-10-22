@@ -56,6 +56,7 @@ class AdminController extends Controller
 
         $insertData = [
             'title'             => $pageTitle,
+            'admin_id'          => 1,
             'slug'              => $pageslug,
             'description'       => $pageDescription,
             'publish_status'    => $pageStatus,
@@ -65,7 +66,8 @@ class AdminController extends Controller
         ];
         DB::table('pages')->insert($insertData);        
         session()->flash('msg', 'Page created successfully!');
-        return redirect()->back();
+        return redirect()->route('page_list');
+        // return redirect()->back();
     }
 
     public function selectPages()
